@@ -1,0 +1,30 @@
+{
+  "name": "webpack-target-titanium",
+  "version": "0.1.0",
+  "description": "Titanium target platform for Webpack",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webpack",
+    "titanium"
+  ],
+  "author": "Axway Appcelerator",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/appcelerator/titanium-angular.git"
+  },
+  "peerDependencies": {
+    "webpack": "^4.6.0"
+  },
+  "dependencies": {
+    "webpack-sources": "^1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-axway": "^2.0.13"
+  }
+}

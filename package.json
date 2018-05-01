@@ -1,0 +1,24 @@
+{
+  "name": "titanium-webpack-devkit",
+  "version": "0.1.0",
+  "description": "Development tools to bundle Titanium apps with Webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webpack",
+    "titanium"
+  ],
+  "author": "Axway Appcelerator",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/appcelerator/titanium-webpack-devkit.git"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-axway": "^2.0.13",
+    "lerna": "^2.11.0"
+  }
+}

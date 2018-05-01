@@ -1,0 +1,33 @@
+{
+  "name": "webpack-titanium-angular",
+  "version": "0.1.0",
+  "description": "Webpack plugin to compile Angular apps for the Titanium platform",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webpack",
+    "titanium",
+    "angular"
+  ],
+  "author": "Axway Appcelerator",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/appcelerator/titanium-angular.git"
+  },
+  "peerDependencies": {
+    "webpack": "^4.6.0",
+    "typescript": "^2.6.2",
+    "@ngtools/webpack": "6.0.0-rc.6"
+  },
+  "dependencies": {
+    "webpack-sources": "^1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-axway": "^2.0.13"
+  }
+}

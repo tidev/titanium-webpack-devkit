@@ -11,21 +11,17 @@ timestamps {
         stage('Checkout') {
           checkout scm
         }
-        stage('Install dependencies') {
-          sh 'npm install'
-        }
         stage('Security') {
-          sh 'npm ci --production'
-          // Scan for NSP and RetireJS warnings
+          sh 'npm ci'
+          sh 'lerna bootstrap --ci -- --production'
           sh 'npx nsp check --reporter summary --warn-only'
 
-          // FIXME We already run 'retire' as part of appc-js grunt task in npm test. Can we just use that output?
-          sh 'npx retire --exitwith 0'
+          // TODO: Add security checks for the actual packages
 
           step([$class: 'WarningsPublisher', canComputeNew: false, canResolveRelativePaths: false, consoleParsers: [[parserName: 'Node Security Project Vulnerabilities'], [parserName: 'RetireJS']], defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', messagesPattern: '', unHealthy: ''])
         }
         stage('Unit tests') {
-          sh 'npm test'
+          //sh 'npm test'
         }
         stage('Publish') {
           //if(publishableBranches.contains(env.BRANCH_NAME)) {

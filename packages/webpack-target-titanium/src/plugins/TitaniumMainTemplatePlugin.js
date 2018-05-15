@@ -8,9 +8,9 @@ const Template = require('webpack/lib/Template');
 
 module.exports = class TitaniumMainTemplatePlugin {
 	apply(mainTemplate) {
-		const needChunkLoadingCode = chunk => {
+		const needChunkOnDemandLoadingCode = chunk => {
 			for (const chunkGroup of chunk.groupsIterable) {
-				if (chunkGroup.chunks.length > 1 || chunkGroup.getNumberOfChildren() > 0) {
+				if (chunkGroup.getNumberOfChildren() > 0) {
 					return true;
 				}
 			}
@@ -19,7 +19,7 @@ module.exports = class TitaniumMainTemplatePlugin {
 		mainTemplate.hooks.localVars.tap(
 			'TitaniumMainTemplatePlugin',
 			(source, chunk) => {
-				if (!needChunkLoadingCode(chunk)) {
+				if (!needChunkOnDemandLoadingCode(chunk)) {
 					return source;
 				}
 
@@ -39,7 +39,7 @@ module.exports = class TitaniumMainTemplatePlugin {
 		mainTemplate.hooks.requireExtensions.tap(
 			'TitaniumMainTemplatePlugin',
 			(source, chunk) => {
-				if (!needChunkLoadingCode(chunk)) {
+				if (!needChunkOnDemandLoadingCode(chunk)) {
 					return source;
 				}
 

@@ -20,8 +20,22 @@ node('node && npm && npm-publish && nsp && retirejs') {
   }
   stage('Publish') {
     if(publishableBranches.contains(env.BRANCH_NAME)) {
-      echo "Publishing all repos using Lerna..."
-      sh 'lerna publish --skip-git --skip-npm --yes'
+      script {
+        def newVersion = input(
+          id: 'newVersion',
+          message: 'Select a new version',
+          parameters: [
+            [
+              $class: 'ChoiceParameterDefinition',
+              defaultValue: 'strDef',
+              description:'describing choices',
+              name:'nameChoice',
+              choices: "major\nminor\npatch"
+            ]
+          ])
+      }
+
+      sh 'lerna publish --skip-git --skip-npm --yes --cd-version=${newVersion}'
     }
   }
 }

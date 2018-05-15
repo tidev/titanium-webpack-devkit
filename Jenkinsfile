@@ -12,13 +12,8 @@ timestamps {
           checkout scm
         }
         stage('Security') {
-          sh 'npm ci'
-          sh 'lerna bootstrap --ci -- --production'
-          sh 'npx nsp check --reporter summary --warn-only'
-
           // TODO: Add security checks for the actual packages
-
-          step([$class: 'WarningsPublisher', canComputeNew: false, canResolveRelativePaths: false, consoleParsers: [[parserName: 'Node Security Project Vulnerabilities'], [parserName: 'RetireJS']], defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', messagesPattern: '', unHealthy: ''])
+          //step([$class: 'WarningsPublisher', canComputeNew: false, canResolveRelativePaths: false, consoleParsers: [[parserName: 'Node Security Project Vulnerabilities'], [parserName: 'RetireJS']], defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', messagesPattern: '', unHealthy: ''])
         }
         stage('Unit tests') {
           //sh 'npm test'

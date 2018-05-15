@@ -2,26 +2,30 @@
 library 'pipeline-library'
 
 def publishableBranches = ['master']
+def nodeVersion = '8.9.1'
 
-node('node && npm && npm-publish && nsp && retirejs') {
-  stage('Checkout') {
-    checkout scm
-    currentBuild.displayName = "#${packageVersion}-${currentBuild.number}"
-  }
-  stage('Install dependencies') {
-    sh 'npm install'
-  }
-  stage('Security') {
-    sh 'retire -p -n'
-    sh 'nsp check'
-  }
-  stage('Unit tests') {
-    sh 'npm test'
-  }
-  stage('Publish') {
-    if(publishableBranches.contains(env.BRANCH_NAME)) {
-      echo "Publishing all repos using Lerna..."
-      sh 'lerna publish --skip-git --skip-npm --yes'
+timestamps {
+  node('(osx || linux) && git && npm-publish') {
+    nodejs(nodeJSInstallationName: "node ${nodeVersion}") {
+      ansiColor('xterm') {
+        stage('Checkout') {
+          checkout scm
+        }
+        stage('Security') {
+          // TODO: Add security checks for the actual packages
+          //step([$class: 'WarningsPublisher', canComputeNew: false, canResolveRelativePaths: false, consoleParsers: [[parserName: 'Node Security Project Vulnerabilities'], [parserName: 'RetireJS']], defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', messagesPattern: '', unHealthy: ''])
+        }
+        stage('Unit tests') {
+          //sh 'npm test'
+        }
+        stage('Publish') {
+          if(publishableBranches.contains(env.BRANCH_NAME)) {
+            sh 'npm ci'
+            sh 'npm run lerna-publish'
+            pushGit(force: true)
+          }
+        }
+      }
     }
   }
 }

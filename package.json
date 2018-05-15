@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "lerna bootstrap",
-    "lerna-publish": "lerna publish --skip-git --skip-npm --yes --conventional-commits"
+    "lerna-publish": "lerna publish --yes --conventional-commits"
   },
   "keywords": [
     "webpack",

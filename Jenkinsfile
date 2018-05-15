@@ -21,7 +21,7 @@ timestamps {
         stage('Publish') {
           //if(publishableBranches.contains(env.BRANCH_NAME)) {
             sh 'npm ci'
-            sh 'lerna publish --skip-git --skip-npm --yes --conventional-commits'
+            sh 'npm run lerna-publish'
           //}
         }
       }

@@ -19,7 +19,7 @@ node('node && npm && npm-publish && nsp && retirejs') {
     sh 'npm test'
   }
   stage('Publish') {
-    if(publishableBranches.contains(env.BRANCH_NAME)) {
+    //if(publishableBranches.contains(env.BRANCH_NAME)) {
       script {
         def newVersion = input(
           id: 'newVersion',
@@ -36,6 +36,6 @@ node('node && npm && npm-publish && nsp && retirejs') {
       }
 
       sh 'lerna publish --skip-git --skip-npm --yes --cd-version=${newVersion}'
-    }
+    //}
   }
 }

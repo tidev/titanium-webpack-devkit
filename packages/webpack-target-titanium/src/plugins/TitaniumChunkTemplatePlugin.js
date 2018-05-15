@@ -13,6 +13,7 @@ module.exports = class TitaniumChunkTemplatePlugin {
 				);
 				source.add(modules);
 				source.add(';');
+
 				return source;
 			}
 		);

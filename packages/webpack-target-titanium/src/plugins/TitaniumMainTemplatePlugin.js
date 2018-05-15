@@ -86,10 +86,11 @@ module.exports = class TitaniumMainTemplatePlugin {
 							hashWithLength: length => {
 								const shortChunkHashMap = {};
 								for (const chunkId of Object.keys(chunkMaps.hash)) {
-									if (typeof chunkMaps.hash[chunkId] === 'string')
+									if (typeof chunkMaps.hash[chunkId] === 'string') {
 										shortChunkHashMap[chunkId] = chunkMaps.hash[
 											chunkId
 										].substr(0, length);
+									}
 								}
 								return `' + ${JSON.stringify(
 									shortChunkHashMap
@@ -131,7 +132,7 @@ module.exports = class TitaniumMainTemplatePlugin {
 					'// "0" is the signal for "already loaded"',
 					'if(installedChunks[chunkId] !== 0) {',
 					Template.indent(
-						[`var chunk = require(${request});`]
+						[ `var chunk = require(${request});` ]
 							.concat(insertMoreModules)
 							.concat([
 								'for(var i = 0; i < chunkIds.length; i++)',
@@ -145,10 +146,8 @@ module.exports = class TitaniumMainTemplatePlugin {
 		mainTemplate.hooks.hotBootstrap.tap(
 			'TitaniumMainTemplatePlugin',
 			(source, chunk, hash) => {
-				const hotUpdateChunkFilename =
-					mainTemplate.outputOptions.hotUpdateChunkFilename;
-				const hotUpdateMainFilename =
-					mainTemplate.outputOptions.hotUpdateMainFilename;
+				const hotUpdateChunkFilename = mainTemplate.outputOptions.hotUpdateChunkFilename;
+				const hotUpdateMainFilename = mainTemplate.outputOptions.hotUpdateMainFilename;
 				const chunkMaps = chunk.getChunkMaps();
 				const currentHotUpdateChunkFilename = mainTemplate.getAssetPath(
 					JSON.stringify(hotUpdateChunkFilename),
@@ -162,11 +161,12 @@ module.exports = class TitaniumMainTemplatePlugin {
 							hashWithLength: length => {
 								const shortChunkHashMap = {};
 								for (const chunkId of Object.keys(chunkMaps.hash)) {
-									if (typeof chunkMaps.hash[chunkId] === 'string')
+									if (typeof chunkMaps.hash[chunkId] === 'string') {
 										shortChunkHashMap[chunkId] = chunkMaps.hash[chunkId].substr(
 											0,
 											length
 										);
+									}
 								}
 								return `' + ${JSON.stringify(shortChunkHashMap)}[chunkId] + '`;
 							},

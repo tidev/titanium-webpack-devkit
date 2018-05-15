@@ -19,9 +19,9 @@
     "url": "https://github.com/appcelerator/titanium-angular.git"
   },
   "peerDependencies": {
-    "webpack": "^4.6.0",
-    "typescript": "^2.6.2",
-    "@ngtools/webpack": "6.0.0-rc.6"
+    "@ngtools/webpack": "^6.0.0",
+    "typescript": "2.7.x",
+    "webpack": "^4.8.3"
   },
   "dependencies": {
     "webpack-sources": "^1.1.0"

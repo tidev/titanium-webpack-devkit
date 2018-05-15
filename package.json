@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "lerna bootstrap",
-    "lerna-publish": "lerna publish --yes --conventional-commits"
+    "lerna-publish": "lerna publish --yes --conventional-commits",
+    "commit": "git-cz"
   },
   "keywords": [
     "webpack",
@@ -19,8 +20,15 @@
     "url": "https://github.com/appcelerator/titanium-webpack-devkit.git"
   },
   "devDependencies": {
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.1.0",
     "eslint": "^4.19.1",
     "eslint-config-axway": "^2.0.13",
     "lerna": "^2.11.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

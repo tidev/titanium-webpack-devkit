@@ -14,10 +14,25 @@ This is a monorepo with the following packages:
 | webpack-titanium-angular | Wraps the Angular compiler plugin and decorates the internal virtual file system plugin so it supports loading of platform specific files. | - | - |
 | webpack-dev-titanium | Provides Hot Module Reloading inside Titanium apps | - | - |
 
-## Contributions
+## Contributing
 
 Open source contributions are greatly appreciated! If you have a bugfix, improvement or new feature, please create
 [an issue](https://github.com/appcelerator/titanium-vue/issues/new) first and submit a [pull request](https://github.com/appcelerator/titanium-vue/pulls/new) against master.
+
+Before you contribute read through the following guidelines.
+
+* The `master` branch contains a snapshot of the latest stable release. All development should be done in dedicated branches. **Do not submit PRs against the `master` branch.**
+* Checkout relevant topic branches, e.g. `develop` and merge back against that branch.
+* Your commit messages should follow the [Conventional Commits Specification](https://conventionalcommits.org/) so that changelogs and version bumps can be automatically generated. If you are not familiar with the commit message convention, you can use `npm run commit` instead of git commit, which provides an interactive CLI for generating proper commit messages.
+* We will let GitHub automatically squash your PR before merging, so don't worry about making multiple small commits.
+
+## Development setup
+
+After cloning the repo just install the dependencies and you are good to go.
+
+```
+npm i
+```
 
 ## Getting Help
 

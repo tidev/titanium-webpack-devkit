@@ -3,6 +3,7 @@ library 'pipeline-library'
 
 def publishableBranches = ['master']
 def nodeVersion = '8.9.1'
+def npmVersion = '5.7.1'
 
 timestamps {
   node('(osx || linux) && git && npm-publish') {
@@ -10,6 +11,7 @@ timestamps {
       ansiColor('xterm') {
         stage('Checkout') {
           checkout([$class: 'GitSCM', branches: [[name: '**']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'LocalBranch', localBranch: '**']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'f63e8a0a-536e-4695-aaf1-7a0098147b59', url: 'https://github.com/appcelerator/titanium-webpack-devkit.git']]])
+          ensureNPM(npmVersion)
         }
         stage('Security') {
           // TODO: Add security checks for the actual packages

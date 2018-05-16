@@ -22,7 +22,7 @@ timestamps {
           //if(publishableBranches.contains(env.BRANCH_NAME)) {
             sh 'npm ci'
             sh 'npm run lerna-publish'
-            pushGit(name: 'jenkins-git-fix')
+            pushGit(name: env.BRANCH_NAME)
           //}
         }
       }

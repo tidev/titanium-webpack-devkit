@@ -6,7 +6,6 @@
   "version": "0.0.0",
   "command": {
     "publish": {
-      "allowBranch": "master",
       "message": "chore(release): publish %s"
     }
   }

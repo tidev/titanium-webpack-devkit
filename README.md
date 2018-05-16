@@ -10,14 +10,14 @@ This is a monorepo with the following packages:
 
 | Package | Description | Version | Links |
 |---|---|---|---|
-| webpack-target-titanium | Creates a new Titanium target based on the web target | - | - |
-| webpack-titanium-angular | Wraps the Angular compiler plugin and decorates the internal virtual file system plugin so it supports loading of platform specific files. | - | - |
+| webpack-target-titanium | Creates a new Titanium target based on the web target | [![latest](https://img.shields.io/npm/v/webpack-target-titanium.svg?style=flat-square)](https://www.npmjs.com/package/webpack-target-titanium) | [![README](https://img.shields.io/badge/README--green.svg)](https://github.com/appcelerator/titanium-webpack-devkit/tree/master/packages/webpack-target-titanium#readme) |
+| webpack-titanium-angular | Wraps the Angular compiler plugin and decorates the internal virtual file system plugin so it supports loading of platform specific files. | [![latest](https://img.shields.io/npm/v/webpack-titanium-angular.svg?style=flat-square)](https://www.npmjs.com/package/webpack-titanium-angular) | [![README](https://img.shields.io/badge/README--green.svg)](https://github.com/appcelerator/titanium-webpack-devkit/tree/master/packages/webpack-titanium-angular#readme) |
 | webpack-dev-titanium | Provides Hot Module Reloading inside Titanium apps | - | - |
 
 ## Contributing
 
 Open source contributions are greatly appreciated! If you have a bugfix, improvement or new feature, please create
-[an issue](https://github.com/appcelerator/titanium-vue/issues/new) first and submit a [pull request](https://github.com/appcelerator/titanium-vue/pulls/new) against master.
+[an issue](https://github.com/appcelerator/titanium-webpack-devkit/issues/new) first and submit a [pull request](https://github.com/appcelerator/titanium-webpack-devkit/pulls/new) against master.
 
 Before you contribute read through the following guidelines.
 

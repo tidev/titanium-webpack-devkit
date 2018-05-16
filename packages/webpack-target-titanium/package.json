@@ -1,7 +1,7 @@
 {
   "name": "webpack-target-titanium",
   "version": "0.0.1",
-  "description": "Titanium target platform for Webpack",
+  "description": "Titanium target for Webpack, based on the built-in Node target",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint src",
@@ -15,7 +15,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/appcelerator/titanium-angular.git"
+    "url": "https://github.com/appcelerator/titanium-webpack-devkit.git"
   },
   "peerDependencies": {
     "webpack": "^4.6.0"

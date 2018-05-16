@@ -21,11 +21,11 @@ timestamps {
           //sh 'npm test'
         }
         stage('Publish') {
-          //if(publishableBranches.contains(env.BRANCH_NAME)) {
+          if(publishableBranches.contains(env.BRANCH_NAME)) {
             sh 'npm ci'
             sh 'npm run lerna-publish'
             pushGit(name: env.BRANCH_NAME)
-          //}
+          }
         }
       }
     }

@@ -1,15 +1,42 @@
-# webpack-dev-titanium
+# webpack-target-titanium
 
-> Webpack tools to build Titanium apps with Angular
+> Titanium target for Webpack, based on the built-in Node target.
 
-## Overview
+## Getting started
 
-This package consinst of multiple plugins used to integrate Webpack into the Titanium build pipeline. Currently the main porpuse of this library is to:
+First install the Titanium target for Webpack.
 
-* Create a new Titanium target based on the web target that replaces the JSON-P chunk loading process with requires.
-* Wrap the Angular compiler plugin and decorate the internal virtual file system plugin so it supports loading of platform specific files.
+```
+npm i webpack-target-titanium --save-dev
+```
 
-There are other planned features that will be added to this repo as soon as Titanium Angular can utilitze them, such as:
+Now you can use the Titanium target in your Webpack configuration.
 
-* IPC communication with appc-daemon to support Webpack's watch mode.
-* Support Webkit's hot module reloading to Live Sync changes directly into the running app during development.
+```
+const { GenerateAppJsPlugin, titaniumTarget } = require('webpack-target-titanium');
+
+module.exports = {
+  target: titaniumTarget,
+  entry: {
+    bundle:'./src/main.js',
+  },
+  plugins: [ new GenerateAppJsPlugin([ 'bundle' ]) ]
+};
+```
+
+The `GenerateAppJsPlugin` will generate the `app.js` and insert `require` calls to all specified chunks. Splitting your code between multiple chunks is not yet supported, so make sure to always set it to the entry chunk name. 
+
+## Contributing
+
+Open source contributions are greatly appreciated! If you have a bugfix, improvement or new feature, please create
+[an issue](https://github.com/appcelerator/titanium-webpack-devkit/issues/new) first and submit a [pull request](https://github.com/appcelerator/titanium-webpack-devkit/pulls/new) against master.
+
+## Getting Help
+
+If you have questions about bundling apps for Titanium with Webpack, feel free to reach out on Stackoverflow or the
+`#helpme` channel on [TiSlack](http://tislack.org). In case you find a bug, create a [new issue](/issues/new)
+or open a [new JIRA ticket](https://jira.appcelerator.org).
+
+## License
+
+Apache License. Version 2.0

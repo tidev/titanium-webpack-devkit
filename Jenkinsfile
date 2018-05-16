@@ -9,7 +9,7 @@ timestamps {
     nodejs(nodeJSInstallationName: "node ${nodeVersion}") {
       ansiColor('xterm') {
         stage('Checkout') {
-          checkout scm
+          checkout([$class: 'GitSCM', branches: [[name: '**']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'LocalBranch', localBranch: '**']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'f63e8a0a-536e-4695-aaf1-7a0098147b59', url: 'https://github.com/appcelerator/titanium-webpack-devkit.git']]])
         }
         stage('Security') {
           // TODO: Add security checks for the actual packages
@@ -19,11 +19,11 @@ timestamps {
           //sh 'npm test'
         }
         stage('Publish') {
-          if(publishableBranches.contains(env.BRANCH_NAME)) {
+          //if(publishableBranches.contains(env.BRANCH_NAME)) {
             sh 'npm ci'
             sh 'npm run lerna-publish'
             pushGit(force: true)
-          }
+          //}
         }
       }
     }

@@ -1,7 +1,7 @@
 'use strict';
 
 const { AngularCompilerPlugin } = require('@ngtools/webpack');
-const { PlatformAwareFileSystem } = require('./PlatformAwareFileSystem');
+const { PlatformAwareFileSystem } = require('webpack-titanium-target');
 
 /**
  * An extension of the AngularCompilerPlugin that decorates Angular's own

@@ -24,7 +24,8 @@
     "webpack": "^4.8.3"
   },
   "dependencies": {
-    "webpack-sources": "^1.1.0"
+    "webpack-sources": "^1.1.0",
+    "webpack-target-titanium": "^0.0.2"
   },
   "devDependencies": {
     "eslint": "^4.19.1",

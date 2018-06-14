@@ -10,7 +10,7 @@ timestamps {
     nodejs(nodeJSInstallationName: "node ${nodeVersion}") {
       ansiColor('xterm') {
         stage('Checkout') {
-          checkout([$class: 'GitSCM', branches: [[name: '**']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'LocalBranch', localBranch: '**']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'f63e8a0a-536e-4695-aaf1-7a0098147b59', url: 'https://github.com/appcelerator/titanium-webpack-devkit.git']]])
+          checkout([$class: 'GitSCM', branches: [[name: '**']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'LocalBranch', localBranch: "${env.BRANCH_NAME}"]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'f63e8a0a-536e-4695-aaf1-7a0098147b59', url: 'https://github.com/appcelerator/titanium-webpack-devkit.git']]])
           ensureNPM(npmVersion)
         }
         stage('Security') {

@@ -1,4 +1,5 @@
 # Titanium Webpack DevKit
+[![Greenkeeper badge](https://badges.greenkeeper.io/appcelerator/titanium-webpack-devkit.svg)](https://greenkeeper.io/)
 
 > Development tools to bundle Titanium apps with Webpack
 

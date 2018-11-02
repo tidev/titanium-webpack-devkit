@@ -18,7 +18,7 @@
     "url": "https://github.com/appcelerator/titanium-webpack-devkit.git"
   },
   "peerDependencies": {
-    "webpack": "^4.6.0"
+    "webpack": "^4.24.0"
   },
   "dependencies": {
     "webpack-sources": "^1.1.0"

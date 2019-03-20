@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/appcelerator/titanium-webpack-devkit/compare/v0.1.0...v0.2.0) (2019-03-20)
+
+
+### Features
+
+* support hot module reloading ([5a06ca2](https://github.com/appcelerator/titanium-webpack-devkit/commit/5a06ca2))
+
+
+
+
 <a name="0.1.0"></a>
 # [0.1.0](https://github.com/appcelerator/titanium-webpack-devkit/compare/v0.0.2...v0.1.0) (2018-06-14)
 

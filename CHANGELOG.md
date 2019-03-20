@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/appcelerator/titanium-webpack-devkit/compare/v0.1.0...v0.2.1) (2019-03-20)
+
+
+### Bug Fixes
+
+* **angular:** fix typo in require ([ac0493f](https://github.com/appcelerator/titanium-webpack-devkit/commit/ac0493f))
+
+
+
+
+
 <a name="0.1.0"></a>
 # [0.1.0](https://github.com/appcelerator/titanium-webpack-devkit/compare/v0.0.2...v0.1.0) (2018-06-14)
 

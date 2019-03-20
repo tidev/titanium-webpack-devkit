@@ -1,6 +1,6 @@
 {
   "name": "webpack-titanium-angular",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "Webpack plugin to compile Angular apps for the Titanium platform",
   "main": "src/index.js",
   "scripts": {
@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "webpack-sources": "^1.1.0",
-    "webpack-target-titanium": "^0.1.0"
+    "webpack-target-titanium": "^0.2.1"
   },
   "devDependencies": {
     "eslint": "^5.7.0",

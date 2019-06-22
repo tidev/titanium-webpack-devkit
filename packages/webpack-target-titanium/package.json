@@ -24,7 +24,7 @@
     "webpack-sources": "^1.1.0"
   },
   "devDependencies": {
-    "eslint": "^5.7.0",
+    "eslint": "^6.0.0",
     "eslint-config-axway": "^4.0.0"
   }
 }

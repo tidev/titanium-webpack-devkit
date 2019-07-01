@@ -28,7 +28,7 @@
     "webpack-target-titanium": "^0.2.1"
   },
   "devDependencies": {
-    "eslint": "^5.7.0",
+    "eslint": "^6.0.1",
     "eslint-config-axway": "^4.0.0"
   }
 }

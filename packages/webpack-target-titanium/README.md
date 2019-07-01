@@ -48,19 +48,19 @@ module.exports = (env, args) => ({
 
 ### Appc Daemon support plugin
 
-The `WatchStateNotifierPlugin` is used to communicate build status updates between Webpack and the @appcd/plguin-webpack. Make sure to include it if you use the appcd plugin.
+The `WatchStateNotifierPlugin` is used to communicate build status updates between Webpack and the @appcd/plugin-webpack. Make sure to include it if you use the appcd plugin.
 
 ```js
 const { WatchStateNotifierPlugin } = require('webpack-target-titanium');
 
 module.exports = (env, args) => {
-	const config = {
+  const config = {
     // ...
   }
   
   if (!env.production) {
-		config.plugins.push(new WatchStateNotifierPlugin());
-	}
+    config.plugins.push(new WatchStateNotifierPlugin());
+  }
   
   return config;
 }

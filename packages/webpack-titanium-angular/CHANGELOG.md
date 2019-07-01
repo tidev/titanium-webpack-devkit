@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/appcelerator/titanium-webpack-devkit/compare/v0.2.1...v0.2.2) (2019-07-01)
+
+**Note:** Version bump only for package webpack-titanium-angular
+
+
+
+
+
 ## [0.2.1](https://github.com/appcelerator/titanium-webpack-devkit/compare/v0.1.0...v0.2.1) (2019-03-20)
 
 

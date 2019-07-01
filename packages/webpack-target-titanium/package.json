@@ -1,6 +1,6 @@
 {
   "name": "webpack-target-titanium",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Titanium target for Webpack, based on the built-in Node target",
   "main": "src/index.js",
   "scripts": {

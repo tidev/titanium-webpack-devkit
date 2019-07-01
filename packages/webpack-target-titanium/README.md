@@ -24,7 +24,47 @@ module.exports = {
 };
 ```
 
-The `GenerateAppJsPlugin` will generate the `app.js` and insert `require` calls to all specified chunks. Splitting your code between multiple chunks is not yet supported, so make sure to always set it to the entry chunk name. 
+The `GenerateAppJsPlugin` will generate the `app.js` and insert `require` calls to all specified chunks. Splitting your code between multiple chunks is not yet supported, so make sure to always set it to the entry chunk name.
+
+## Plugins
+
+The Titanium target comes with two other plugins that improve the devolpment experience when using Webpack and Titanium together.
+
+### Platform plugin
+
+The `PlatformAwareFileSystemPlugin` tells Webpack to prefer platform specific files if they are present. A require to `./utils.js`, for example, checks for `./utils.<platform>.js` and uses that path if the files exists. The current platform to check for needs to be specified via the `platform` option.
+
+The following example uses Webpack's [environment variables](https://webpack.js.org/guides/environment-variables/) to set the current platform:
+
+```js
+const { PlatformAwareFileSystemPlugin } = require('webpack-target-titanium');
+
+module.exports = (env, args) => ({
+  plugins: [
+    new PlatformAwareFileSystemPlugin({ platform: env.platform })
+  ]
+});
+```
+
+### Appc Daemon support plugin
+
+The `WatchStateNotifierPlugin` is used to communicate build status updates between Webpack and the @appcd/plugin-webpack. Make sure to include it if you use the appcd plugin.
+
+```js
+const { WatchStateNotifierPlugin } = require('webpack-target-titanium');
+
+module.exports = (env, args) => {
+  const config = {
+    // ...
+  }
+  
+  if (!env.production) {
+    config.plugins.push(new WatchStateNotifierPlugin());
+  }
+  
+  return config;
+}
+```
 
 ## Contributing
 

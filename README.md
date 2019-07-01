@@ -11,9 +11,8 @@ This is a monorepo with the following packages:
 
 | Package | Description | Version | Links |
 |---|---|---|---|
-| webpack-target-titanium | Creates a new Titanium target based on the web target | [![latest](https://img.shields.io/npm/v/webpack-target-titanium.svg?style=flat-square)](https://www.npmjs.com/package/webpack-target-titanium) | [![README](https://img.shields.io/badge/README--green.svg)](https://github.com/appcelerator/titanium-webpack-devkit/tree/master/packages/webpack-target-titanium#readme) |
-| webpack-titanium-angular | Wraps the Angular compiler plugin and decorates the internal virtual file system plugin so it supports loading of platform specific files. | [![latest](https://img.shields.io/npm/v/webpack-titanium-angular.svg?style=flat-square)](https://www.npmjs.com/package/webpack-titanium-angular) | [![README](https://img.shields.io/badge/README--green.svg)](https://github.com/appcelerator/titanium-webpack-devkit/tree/master/packages/webpack-titanium-angular#readme) |
-| webpack-dev-titanium | Provides Hot Module Reloading inside Titanium apps | - | - |
+| webpack-target-titanium | Provides a new Titanium target based on the NodeJS target and several plugins that allow you to use Webpack in Titanium apps. | [![latest](https://img.shields.io/npm/v/webpack-target-titanium.svg?style=flat-square)](https://www.npmjs.com/package/webpack-target-titanium) | [![README](https://img.shields.io/badge/README--green.svg)](https://github.com/appcelerator/titanium-webpack-devkit/tree/master/packages/webpack-target-titanium#readme) |
+| webpack-titanium-angular | Titanium compatible wrapper around the Angular compiler plugin. | [![latest](https://img.shields.io/npm/v/webpack-titanium-angular.svg?style=flat-square)](https://www.npmjs.com/package/webpack-titanium-angular) | [![README](https://img.shields.io/badge/README--green.svg)](https://github.com/appcelerator/titanium-webpack-devkit/tree/master/packages/webpack-titanium-angular#readme) |
 
 ## Contributing
 

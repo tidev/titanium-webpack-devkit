@@ -4,10 +4,11 @@
   "description": "Development tools to bundle Titanium apps with Webpack",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "lerna bootstrap",
+    "commit": "git-cz",
     "lerna-publish": "lerna publish --yes --conventional-commits",
-    "commit": "git-cz"
+    "lint": "eslint packages/*/src/",
+    "postinstall": "lerna bootstrap",
+    "test": "npm run lint"
   },
   "keywords": [
     "webpack",
@@ -20,11 +21,11 @@
     "url": "https://github.com/appcelerator/titanium-webpack-devkit.git"
   },
   "devDependencies": {
-    "commitizen": "^3.0.2",
+    "commitizen": "^3.1.1",
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^6.0.1",
-    "eslint-config-axway": "^4.0.0",
-    "lerna": "^3.4.3"
+    "eslint-config-axway": "^4.2.2",
+    "lerna": "^3.15.0"
   },
   "config": {
     "commitizen": {

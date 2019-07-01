@@ -1,5 +1,5 @@
 /* global installedChunks */
-module.exports = function() {
+module.exports = function () {
 	/**
 	 * @todo Implement chunk loading from titanium-dev-server
 	 * @param {string} chunkId Chunk id to download

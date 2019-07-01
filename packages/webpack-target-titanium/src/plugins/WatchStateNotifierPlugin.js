@@ -19,12 +19,12 @@ class WatchStateNotifierPlugin {
 	}
 
 	apply(compiler) {
-		compiler.plugin('watch-run', (compiler, callback) => {
-			process.send && process.send(this.MESSAGE_CHANGE_DETECTED, () => {});
+		compiler.hooks.watchRun.tapAsync('WatchStateNotifierPlugin', (compiler, callback) => {
+			process.send && process.send(WatchStateNotifierPlugin.MESSAGE_CHANGE_DETECTED, () => {});
 			callback();
 		});
-		compiler.plugin('after-emit', (compilation, callback) => {
-			process.send && process.send(this.MESSAGE_COMPILATION_COMPLETE, () => {});
+		compiler.hooks.afterEmit.tapAsync('WatchStateNotifierPlugin', (compiler, callback) => {
+			process.send && process.send(WatchStateNotifierPlugin.MESSAGE_COMPILATION_COMPLETE, () => {});
 			callback();
 		});
 	}

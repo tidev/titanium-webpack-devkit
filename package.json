@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "commitizen": "^3.1.1",
-    "cz-conventional-changelog": "^2.1.0",
+    "cz-conventional-changelog": "^3.0.0",
     "eslint": "^6.0.1",
     "eslint-config-axway": "^4.2.2",
     "lerna": "^3.15.0"

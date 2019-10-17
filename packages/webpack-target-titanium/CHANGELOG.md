@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/appcelerator/titanium-webpack-devkit/compare/v0.2.2...v0.2.3) (2019-10-17)
+
+
+### Bug Fixes
+
+* replace NodeSourcePlugin with NodeTargetPlugin ([#23](https://github.com/appcelerator/titanium-webpack-devkit/issues/23)) ([341333d](https://github.com/appcelerator/titanium-webpack-devkit/commit/341333d))
+
+
+
+
+
 ## [0.2.2](https://github.com/appcelerator/titanium-webpack-devkit/compare/v0.2.1...v0.2.2) (2019-07-01)
 
 

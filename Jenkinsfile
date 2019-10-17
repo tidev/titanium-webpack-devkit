@@ -3,7 +3,7 @@ library 'pipeline-library'
 
 def publishableBranches = ['master']
 def nodeVersion = '8.9.1'
-def npmVersion = '5.7.1'
+def npmVersion = 'latest'
 
 timestamps {
   node('(osx || linux) && git && npm-publish') {

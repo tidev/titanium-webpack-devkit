@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/appcelerator/titanium-webpack-devkit/compare/v0.2.3...v1.0.0) (2019-10-18)
+
+
+### Features
+
+* platform resolver plugin ([#25](https://github.com/appcelerator/titanium-webpack-devkit/issues/25)) ([de034c5](https://github.com/appcelerator/titanium-webpack-devkit/commit/de034c5))
+* titanium externals plugin ([#27](https://github.com/appcelerator/titanium-webpack-devkit/issues/27)) ([c74a694](https://github.com/appcelerator/titanium-webpack-devkit/commit/c74a694))
+
+
+### BREAKING CHANGES
+
+* replace the file system override with a resolver plugin
+
+
+
+
+
 ## [0.2.3](https://github.com/appcelerator/titanium-webpack-devkit/compare/v0.2.2...v0.2.3) (2019-10-17)
 
 

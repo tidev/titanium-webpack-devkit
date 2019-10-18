@@ -24,6 +24,6 @@
   },
   "dependencies": {
     "webpack-sources": "^1.1.0",
-    "webpack-target-titanium": "^0.2.3"
+    "webpack-target-titanium": "^1.0.0"
   }
 }

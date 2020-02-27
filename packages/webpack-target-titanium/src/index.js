@@ -1,15 +1,13 @@
 'use strict';
 
 const GenerateAppJsPlugin = require('./plugins/GenerateAppJsPlugin');
-const PlatformAwareFileSystem = require('./PlatformAwareFileSystem');
-const PlatformAwareFileSystemPlugin = require('./plugins/PlatformAwareFileSystemPlugin');
+const PlatformResolverPlugin = require('./plugins/PlatformResolverPlugin');
 const titaniumTarget = require('./titanium-target');
-const WatchStateNotifierPlugin = require('./plugins/WatchStateNotifierPlugin');
+const TitaniumExternalsPlugins = require('./plugins/TitaniumExternalsPlugin');
 
 module.exports = {
 	GenerateAppJsPlugin,
-	PlatformAwareFileSystem,
-	PlatformAwareFileSystemPlugin,
+	PlatformResolverPlugin,
 	titaniumTarget,
-	WatchStateNotifierPlugin
+	TitaniumExternalsPlugins
 };

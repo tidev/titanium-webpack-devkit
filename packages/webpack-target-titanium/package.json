@@ -1,10 +1,9 @@
 {
   "name": "webpack-target-titanium",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Titanium target for Webpack, based on the built-in Node target",
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -22,9 +21,5 @@
   },
   "dependencies": {
     "webpack-sources": "^1.1.0"
-  },
-  "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-axway": "^2.0.13"
   }
 }

@@ -13,7 +13,7 @@ module.exports = function () {
 
 	// eslint-disable-next-line no-unused-vars
 	function hotDownloadUpdateChunk(chunkId) {
-		const url = 'http://localhost:8080/' + $require$.p + $hotChunkFilename$;
+		const url = $require$.p + $hotChunkFilename$;
 		const client = Ti.Network.createHTTPClient({
 			onload: function () {
 				// eslint-disable-next-line no-eval
@@ -32,7 +32,7 @@ module.exports = function () {
 	// eslint-disable-next-line no-unused-vars
 	function hotDownloadManifest() {
 		return new Promise((resolve, reject) => {
-			const url = 'http://localhost:8080/' + $require$.p + $hotMainFilename$;
+			const url = $require$.p + $hotMainFilename$;
 			const client = Ti.Network.createHTTPClient({
 				onload: function () {
 					try {

@@ -2,7 +2,7 @@
 library 'pipeline-library'
 
 def publishableBranches = ['master']
-def nodeVersion = '8.9.1'
+def nodeVersion = '10.15.0'
 def npmVersion = 'latest'
 
 timestamps {
@@ -26,11 +26,11 @@ timestamps {
         stage('Unit tests') {
           //sh 'npm test'
         }
-        stage('Publish') {
-          if(publishableBranches.contains(env.BRANCH_NAME)) {
-            sh 'npm ci'
-            sh 'npm run lerna-publish'
-            pushGit(name: env.BRANCH_NAME)
+        if(publishableBranches.contains(env.BRANCH_NAME)) {
+          stage('Publish') {
+            gitRemoteWithCredentials {
+              sh 'npm run lerna-publish'
+            }
           }
         }
       }

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/appcelerator/titanium-webpack-devkit/compare/v1.0.0...v2.0.0) (2020-04-17)
+
+
+### Bug Fixes
+
+* respect existing extension ([283a59d](https://github.com/appcelerator/titanium-webpack-devkit/commit/283a59d))
+* **angular:** move platform fs decorator to angular package ([e404a86](https://github.com/appcelerator/titanium-webpack-devkit/commit/e404a86))
+
+
+### BREAKING CHANGES
+
+* Inserts new `ignoreExtension` argument to plugin constructor. You need to create and add two plugin instances with altering `ignoreExtension` values.
+
+
+
+
+
 # [1.0.0](https://github.com/appcelerator/titanium-webpack-devkit/compare/v0.2.3...v1.0.0) (2019-10-18)
 
 

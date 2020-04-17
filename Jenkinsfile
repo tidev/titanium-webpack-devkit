@@ -19,6 +19,9 @@ timestamps {
           ])
           ensureNPM(npmVersion)
         }
+        stage('Prepare') {
+          sh 'npm ci'
+        }
         stage('Security') {
           // TODO: Add security checks for the actual packages
           //step([$class: 'WarningsPublisher', canComputeNew: false, canResolveRelativePaths: false, consoleParsers: [[parserName: 'Node Security Project Vulnerabilities'], [parserName: 'RetireJS']], defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', messagesPattern: '', unHealthy: ''])

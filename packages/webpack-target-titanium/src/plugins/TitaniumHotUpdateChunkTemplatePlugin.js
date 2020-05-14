@@ -9,10 +9,12 @@ module.exports = class TitaniumHotUpdateChunkTemplatePlugin {
 			(modulesSource, modules, removedModules, hash, id) => {
 				const source = new ConcatSource();
 				source.add(
-					'exports.id = ' + JSON.stringify(id) + ';\nexports.modules = '
+					`${
+						hotUpdateChunkTemplate.outputOptions.hotUpdateFunction
+					}(${JSON.stringify(id)},`
 				);
 				source.add(modulesSource);
-				source.add(';');
+				source.add(')');
 				return source;
 			}
 		);
@@ -22,9 +24,9 @@ module.exports = class TitaniumHotUpdateChunkTemplatePlugin {
 				hash.update('TitaniumHotUpdateChunkTemplatePlugin');
 				hash.update('1');
 				hash.update(
-					hotUpdateChunkTemplate.outputOptions.hotUpdateFunction + ''
+					`${hotUpdateChunkTemplate.outputOptions.hotUpdateFunction}`
 				);
-				hash.update(hotUpdateChunkTemplate.outputOptions.library + '');
+				hash.update(`${hotUpdateChunkTemplate.outputOptions.library}`);
 			}
 		);
 	}

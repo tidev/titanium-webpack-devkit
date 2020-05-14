@@ -16,6 +16,7 @@ module.exports = class TitaniumMainTemplatePlugin {
 			}
 			return false;
 		};
+
 		mainTemplate.hooks.localVars.tap(
 			'TitaniumMainTemplatePlugin',
 			(source, chunk) => {
@@ -26,8 +27,9 @@ module.exports = class TitaniumMainTemplatePlugin {
 				return Template.asString([
 					source,
 					'',
-					'// object to store loaded chunks',
-					'// "0" means "already loaded"',
+					'// object to store loaded and loading chunks',
+					'// undefined = chunk not loaded, null = chunk preloaded/prefetched',
+					'// Promise = chunk loading, 0 = chunk loaded',
 					'var installedChunks = {',
 					Template.indent(
 						chunk.ids.map(id => `${JSON.stringify(id)}: 0`).join(',\n')
@@ -36,6 +38,7 @@ module.exports = class TitaniumMainTemplatePlugin {
 				]);
 			}
 		);
+
 		mainTemplate.hooks.requireExtensions.tap(
 			'TitaniumMainTemplatePlugin',
 			(source, chunk) => {
@@ -55,6 +58,7 @@ module.exports = class TitaniumMainTemplatePlugin {
 				]);
 			}
 		);
+
 		mainTemplate.hooks.requireEnsure.tap(
 			'TitaniumMainTemplatePlugin',
 			(source, chunk, hash) => {
@@ -77,12 +81,12 @@ module.exports = class TitaniumMainTemplatePlugin {
 				const request = mainTemplate.getAssetPath(
 					JSON.stringify(`./${chunkFilename}`),
 					{
-						hash: `' + ${mainTemplate.renderCurrentHashCode(hash)} + '`,
+						hash: `" + ${mainTemplate.renderCurrentHashCode(hash)} + "`,
 						hashWithLength: length =>
-							`' + ${mainTemplate.renderCurrentHashCode(hash, length)} + '`,
+							`" + ${mainTemplate.renderCurrentHashCode(hash, length)} + "`,
 						chunk: {
 							id: '" + chunkId + "',
-							hash: `' + ${JSON.stringify(chunkMaps.hash)}[chunkId] + '`,
+							hash: `" + ${JSON.stringify(chunkMaps.hash)}[chunkId] + "`,
 							hashWithLength: length => {
 								const shortChunkHashMap = {};
 								for (const chunkId of Object.keys(chunkMaps.hash)) {
@@ -92,14 +96,14 @@ module.exports = class TitaniumMainTemplatePlugin {
 										].substr(0, length);
 									}
 								}
-								return `' + ${JSON.stringify(
+								return `" + ${JSON.stringify(
 									shortChunkHashMap
-								)}[chunkId] + '`;
+								)}[chunkId] + "`;
 							},
 							contentHash: {
-								javascript: `' + ${JSON.stringify(
+								javascript: `" + ${JSON.stringify(
 									chunkMaps.contentHash.javascript
-								)}[chunkId] + '`
+								)}[chunkId] + "`
 							},
 							contentHashWithLength: {
 								javascript: length => {
@@ -112,14 +116,14 @@ module.exports = class TitaniumMainTemplatePlugin {
 											].substr(0, length);
 										}
 									}
-									return `' + ${JSON.stringify(
+									return `" + ${JSON.stringify(
 										shortContentHashMap
-									)}[chunkId] + '`;
+									)}[chunkId] + "`;
 								}
 							},
-							name: `' + (${JSON.stringify(
+							name: `" + (${JSON.stringify(
 								chunkMaps.name
-							)}[chunkId]||chunkId) + '`
+							)}[chunkId]||chunkId) + "`
 						},
 						contentHashType: 'javascript'
 					}
@@ -143,58 +147,55 @@ module.exports = class TitaniumMainTemplatePlugin {
 				]);
 			}
 		);
+
 		mainTemplate.hooks.hotBootstrap.tap(
 			'TitaniumMainTemplatePlugin',
 			(source, chunk, hash) => {
+				const globalObject = mainTemplate.outputOptions.globalObject;
 				const hotUpdateChunkFilename = mainTemplate.outputOptions.hotUpdateChunkFilename;
 				const hotUpdateMainFilename = mainTemplate.outputOptions.hotUpdateMainFilename;
-				const chunkMaps = chunk.getChunkMaps();
+				const hotUpdateFunction = mainTemplate.outputOptions.hotUpdateFunction;
 				const currentHotUpdateChunkFilename = mainTemplate.getAssetPath(
 					JSON.stringify(hotUpdateChunkFilename),
 					{
-						hash: `' + ${mainTemplate.renderCurrentHashCode(hash)} + '`,
+						hash: `" + ${mainTemplate.renderCurrentHashCode(hash)} + "`,
 						hashWithLength: length =>
-							`' + ${mainTemplate.renderCurrentHashCode(hash, length)} + '`,
+							`" + ${mainTemplate.renderCurrentHashCode(hash, length)} + "`,
 						chunk: {
-							id: '" + chunkId + "',
-							hash: `' + ${JSON.stringify(chunkMaps.hash)}[chunkId] + '`,
-							hashWithLength: length => {
-								const shortChunkHashMap = {};
-								for (const chunkId of Object.keys(chunkMaps.hash)) {
-									if (typeof chunkMaps.hash[chunkId] === 'string') {
-										shortChunkHashMap[chunkId] = chunkMaps.hash[chunkId].substr(
-											0,
-											length
-										);
-									}
-								}
-								return `' + ${JSON.stringify(shortChunkHashMap)}[chunkId] + '`;
-							},
-							name: `' + (${JSON.stringify(
-								chunkMaps.name
-							)}[chunkId]||chunkId) + '`
+							id: '" + chunkId + "'
 						}
 					}
 				);
 				const currentHotUpdateMainFilename = mainTemplate.getAssetPath(
 					JSON.stringify(hotUpdateMainFilename),
 					{
-						hash: `' + ${mainTemplate.renderCurrentHashCode(hash)} + '`,
+						hash: `" + ${mainTemplate.renderCurrentHashCode(hash)} + "`,
 						hashWithLength: length =>
-							`' + ${mainTemplate.renderCurrentHashCode(hash, length)} + '`
+							`" + ${mainTemplate.renderCurrentHashCode(hash, length)} + "`
 					}
 				);
-				return Template.getFunctionContent(require('./TitaniumMainTemplate.runtime.js'))
+				const runtimeSource = Template.getFunctionContent(
+					require('./TitaniumMainTemplate.runtime')
+				)
+					.replace(/\/\/\s\$semicolon/g, ';')
 					.replace(/\$require\$/g, mainTemplate.requireFn)
 					.replace(/\$hotMainFilename\$/g, currentHotUpdateMainFilename)
 					.replace(/\$hotChunkFilename\$/g, currentHotUpdateChunkFilename);
+				return `${source}
+function hotDisposeChunk(chunkId) {
+	delete installedChunks[chunkId];
+}
+var parentHotUpdateCallback = ${globalObject}[${JSON.stringify(hotUpdateFunction)}];
+${globalObject}[${JSON.stringify(hotUpdateFunction)}] = ${runtimeSource}`;
 			}
 		);
+
 		mainTemplate.hooks.hash.tap('TitaniumMainTemplatePlugin', hash => {
 			hash.update('titanium');
 			hash.update('1');
-			hash.update(mainTemplate.outputOptions.filename + '');
-			hash.update(mainTemplate.outputOptions.chunkFilename + '');
+			hash.update(`${mainTemplate.outputOptions.globalObject}`);
+			hash.update(`${mainTemplate.outputOptions.chunkFilename}`);
+			hash.update(`${mainTemplate.outputOptions.hotUpdateFunction}`);
 		});
 	}
 };

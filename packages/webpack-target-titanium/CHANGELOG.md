@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/appcelerator/titanium-webpack-devkit/compare/v2.0.0...v2.1.0) (2020-05-28)
+
+
+### Bug Fixes
+
+* emit app.js only once ([#36](https://github.com/appcelerator/titanium-webpack-devkit/issues/36)) ([9c0ddc1](https://github.com/appcelerator/titanium-webpack-devkit/commit/9c0ddc1))
+
+
+### Features
+
+* support hot module reloading ([#8](https://github.com/appcelerator/titanium-webpack-devkit/issues/8)) ([990f023](https://github.com/appcelerator/titanium-webpack-devkit/commit/990f023))
+
+
+
+
+
 # [2.0.0](https://github.com/appcelerator/titanium-webpack-devkit/compare/v1.0.0...v2.0.0) (2020-04-17)
 
 

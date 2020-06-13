@@ -2,7 +2,7 @@
 
 const { AngularCompilerPlugin } = require('@ngtools/webpack');
 
-const { PlatformAwareFileSystem } = require('.PlatformAwareFileSystem');
+const PlatformAwareFileSystem = require('./PlatformAwareFileSystem');
 
 /**
  * An extension of the AngularCompilerPlugin that decorates Angular's own

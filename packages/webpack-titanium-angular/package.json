@@ -17,13 +17,10 @@
     "type": "git",
     "url": "https://github.com/appcelerator/titanium-webpack-devkit.git"
   },
-  "peerDependencies": {
-    "@ngtools/webpack": "^6.0.0",
-    "typescript": "2.7.x",
-    "webpack": "^4.8.3"
+  "devDependencies": {
+    "@ngtools/webpack": "^9.1.8"
   },
-  "dependencies": {
-    "webpack-sources": "^1.1.0",
-    "webpack-target-titanium": "^2.1.0"
+  "peerDependencies": {
+    "@ngtools/webpack": "~9.1.0"
   }
 }

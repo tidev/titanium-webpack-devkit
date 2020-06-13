@@ -1,6 +1,7 @@
 'use strict';
 
 const { AngularCompilerPlugin } = require('@ngtools/webpack');
+const { VirtualWatchFileSystemDecorator } = require('@ngtools/webpack/src/virtual_file_system_decorator');
 
 const PlatformAwareFileSystem = require('./PlatformAwareFileSystem');
 
@@ -19,8 +20,12 @@ class TitaniumAngularCompilerPlugin extends AngularCompilerPlugin {
 		super.apply(compiler);
 
 		compiler.hooks.environment.tap('titanium-angular-compiler', () => {
-			compiler.inputFileSystem = new PlatformAwareFileSystem(compiler.inputFileSystem, this.targetPlatform);
-			// compiler.watchFileSystem = new VirtualWatchFileSystemDecorator(compiler.inputFileSystem);
+			const inputFileSystem = new PlatformAwareFileSystem(compiler.inputFileSystem, this.targetPlatform);
+			compiler.inputFileSystem = inputFileSystem;
+			compiler.watchFileSystem = new VirtualWatchFileSystemDecorator(
+				inputFileSystem,
+				compiler.watchFileSystem._replacements
+			);
 		});
 	}
 }

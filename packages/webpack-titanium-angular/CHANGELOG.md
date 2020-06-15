@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/appcelerator/titanium-webpack-devkit/compare/v2.1.0...v2.1.1) (2020-06-15)
+
+
+### Bug Fixes
+
+* create watch file system using platform decorator ([0447ce8](https://github.com/appcelerator/titanium-webpack-devkit/commit/0447ce8))
+* follow convention when wrapping input file system ([107062a](https://github.com/appcelerator/titanium-webpack-devkit/commit/107062a))
+
+
+
+
+
 # [2.1.0](https://github.com/appcelerator/titanium-webpack-devkit/compare/v2.0.0...v2.1.0) (2020-05-28)
 
 **Note:** Version bump only for package webpack-titanium-angular

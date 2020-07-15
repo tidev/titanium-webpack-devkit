@@ -13,6 +13,14 @@ class PlatformAwareFileSystem {
 		this.targetPlatform = targetPlatform;
 	}
 
+	getWebpackCompilerHost() {
+		return this._inputFileSystem.getWebpackCompilerHost();
+	}
+
+	getVirtualFilesPaths() {
+		return this._inputFileSystem.getVirtualFilesPaths();
+	}
+
 	stat(path, callback) {
 		this.usePlatformPathIfExists(this._inputFileSystem.stat, path, callback);
 	}

@@ -3,6 +3,7 @@
 const { AngularCompilerPlugin } = require('@ngtools/webpack');
 const { VirtualWatchFileSystemDecorator } = require('@ngtools/webpack/src/virtual_file_system_decorator');
 
+const { replaceBootstrap } = require('./transformers')
 const PlatformAwareFileSystem = require('./PlatformAwareFileSystem');
 
 /**
@@ -11,6 +12,14 @@ const PlatformAwareFileSystem = require('./PlatformAwareFileSystem');
  */
 class TitaniumAngularCompilerPlugin extends AngularCompilerPlugin {
 	constructor(options) {
+		if (options.skipCodeGeneration) {
+			const platformTransforms = [];
+			const getEntryModule = () => this.entryModule
+			const getTypeChecker = () => this._getTsProgram().getTypeChecker()
+			platformTransforms.push(replaceBootstrap(getEntryModule, getTypeChecker))
+			options.platformTransforms = platformTransforms
+		}
+
 		super(options);
 
 		this.targetPlatform = options.targetPlatform;

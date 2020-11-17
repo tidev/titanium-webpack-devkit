@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/appcelerator/titanium-webpack-devkit/compare/v2.1.2...v2.2.0) (2020-11-17)
+
+
+### Bug Fixes
+
+* **angular:** add transformer if skipCodeGeneration is false ([cb817eb](https://github.com/appcelerator/titanium-webpack-devkit/commit/cb817eb))
+
+
+### Features
+
+* replace entry and bootstrap for aot build ([c61607f](https://github.com/appcelerator/titanium-webpack-devkit/commit/c61607f))
+
+
+
+
+
 ## [2.1.2](https://github.com/appcelerator/titanium-webpack-devkit/compare/v2.1.1...v2.1.2) (2020-07-15)
 
 

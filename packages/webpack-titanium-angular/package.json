@@ -1,6 +1,6 @@
 {
   "name": "webpack-titanium-angular",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "description": "Webpack plugin to compile Angular apps for the Titanium platform",
   "main": "src/index.js",
   "scripts": {

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/appcelerator/titanium-webpack-devkit/compare/v2.2.0...v2.2.1) (2020-11-17)
+
+
+### Bug Fixes
+
+* **angular:** typo in compiler options ([#42](https://github.com/appcelerator/titanium-webpack-devkit/issues/42)) ([cec3328](https://github.com/appcelerator/titanium-webpack-devkit/commit/cec3328))
+
+
+
+
+
 # [2.2.0](https://github.com/appcelerator/titanium-webpack-devkit/compare/v2.1.2...v2.2.0) (2020-11-17)
 
 

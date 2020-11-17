@@ -13,11 +13,11 @@ const PlatformAwareFileSystem = require('./PlatformAwareFileSystem');
 class TitaniumAngularCompilerPlugin extends AngularCompilerPlugin {
 	constructor(options) {
 		if (options.skipCodeGeneration === false) {
-			const platformTransforms = [];
+			const platformTransformers = [];
 			const getEntryModule = () => this.entryModule
 			const getTypeChecker = () => this._getTsProgram().getTypeChecker()
-			platformTransforms.push(replaceBootstrap(getEntryModule, getTypeChecker))
-			options.platformTransforms = platformTransforms
+			platformTransformers.push(replaceBootstrap(getEntryModule, getTypeChecker))
+			options.platformTransformers = platformTransformers
 		}
 
 		super(options);

@@ -23,6 +23,6 @@
     "webpack-sources": "^1.1.0"
   },
   "devDependencies": {
-    "webpack": "^4.41.6"
+    "webpack": "^5.75.0"
   }
 }

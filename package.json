@@ -25,7 +25,7 @@
     "cz-conventional-changelog": "^3.0.0",
     "eslint": "^6.0.1",
     "eslint-config-axway": "^4.2.2",
-    "lerna": "^3.15.0"
+    "lerna": "^6.4.1"
   },
   "config": {
     "commitizen": {
